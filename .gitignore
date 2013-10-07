@@ -13,3 +13,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+#Don't upload to Github the credentials used to configure email services.
+config/initializers/setup_mail.rb
