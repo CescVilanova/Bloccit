@@ -1,12 +1,16 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>New post</h1>
 
-<%= form_for [@topic, @post], html: { class: 'form-horizontal' } do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-
-  <%= f.submit "Save" %>
-<% end %>
+  <div class="row">
+    <div class="span4">
+      <p>Guidelines for new posts:</p>
+      <ul>
+        <li>Make sure content is appropriate.</li>
+        <li>Blah blah blah</li>
+        <li>Blah blah blah</li>
+        <li>Blah blah blah</li>
+      </ul>
+    </div>
+  <div class="span8">
+  <%= render partial: 'form', locals: { topic: @topic, post: @post } %>
+  </div>
+</div>
