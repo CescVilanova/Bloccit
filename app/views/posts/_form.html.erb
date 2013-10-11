@@ -21,6 +21,18 @@
       <%= f.text_area :body, rows: 8 %>
     </div>
   <% end %>
+
+  <%#Code to add the new tags field %>
+
+  <%= control_group_tag(post.errors[:tags]) do %>
+    <%= f.label :Tags, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :tags, rows: 1 %>
+    </div>
+  <% end %>
+
+  <%#End of the code to add the new tags field %>
+
   <div class="control-group">
     <div class="controls">
       <%= f.submit "Save", class: 'btn' %>
