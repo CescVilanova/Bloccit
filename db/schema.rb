@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131014083802) do
+ActiveRecord::Schema.define(:version => 20131014231427) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20131014083802) do
     t.integer  "topic_id"
     t.integer  "tag_id"
     t.string   "tags"
+    t.string   "image"
   end
 
   add_index "posts", ["tag_id"], :name => "index_posts_on_tag_id"

@@ -31,6 +31,13 @@
     </div>
   <% end %>
 
+  <%= control_group_tag(post.errors[:image]) do %>
+    <%= f.label :image, class: 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :image %>
+    </div>
+  <% end %>
+
   <%#End of the code to add the new tags field %>
 
   <div class="control-group">
@@ -38,4 +45,5 @@
       <%= f.submit "Save", class: 'btn' %>
     </div>
   </div>
+
 <% end %>
