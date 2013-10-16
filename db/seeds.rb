@@ -1,11 +1,21 @@
 require 'faker'
 
-#Create 15 topics
+#Create 30 topics
+Topic.destroy_all
 topics = []
-15.times do
+30.times do
   topics << Topic.create(
     name: Faker::Lorem.words(rand(1..10)).join(" "),
     description: Faker::Lorem.paragraph(rand(1.4))
+  )
+end
+
+#Create 30 posts
+posts = []
+30.times do
+  posts << Post.create(
+    body: Faker::Lorem.words(rand(1..10)).join(" "),
+    title: Faker::Lorem.paragraph(rand(1.4))
   )
 end
 
