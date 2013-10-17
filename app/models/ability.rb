@@ -11,7 +11,7 @@ class Ability
       can :manage, Comment, :user_id => user.id
     end
 
-    # Moderators can delete any post
+    # Moderators can delete any post and comment
     if user.role? :moderator
       can :destroy, Post
       can :destroy, Comment
