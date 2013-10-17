@@ -1,6 +1,6 @@
 Bloccit::Application.routes.draw do
 
-  get "comments/create"
+  resources :links
 
   devise_for :users
 

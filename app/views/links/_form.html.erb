@@ -1,0 +1,23 @@
+<%= form_for [link], html: { class: 'form-horizontal' } do |f| %>
+
+  <%= control_group_tag(link.errors[:name]) do %>
+    <%= f.label :name, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
+  <% end %>
+
+  <%= control_group_tag(link.errors[:url]) do %>
+    <%= f.label :url, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :url %>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Save", class: 'btn' %>
+    </div>
+  </div>
+
+<% end %>

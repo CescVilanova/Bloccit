@@ -1,0 +1,7 @@
+<h1>Links</h1>
+
+<div class="span4">
+    <% if can? :create, Link %>
+      <%= link_to "New Link", new_link_path, class: 'btn btn-large btn-block' %>
+    <% end %>
+</div>
