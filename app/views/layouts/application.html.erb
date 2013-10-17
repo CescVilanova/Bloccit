@@ -9,7 +9,12 @@
 <body>
   <div class = "container">
     <ul class = "nav nav-tabs">
-      <li><%= link_to "Bloccit", root_path %></li>
+        <% if current_user %>   
+            <li><%= link_to "Bloccit", topics_path %></li>
+        <% else %> 
+            <li><%= link_to "Bloccit", root_path %></li>
+        <% end %>
+        
       <li><%= link_to "About", about_path %></li>
 
       <div class="pull-right user-info">
@@ -48,4 +53,3 @@
 
   </body>
 </html>
-
