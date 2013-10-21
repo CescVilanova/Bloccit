@@ -11,12 +11,24 @@ topics = []
 end
 
 #Create 30 posts
+
+@topic = Topic.find(params[:topic_id])
+@post = current_user.posts.build(params[:post])
+p = @post
+
+
 posts = []
 30.times do
   posts << Post.create(
     body: Faker::Lorem.words(rand(1..10)).join(" "),
     title: Faker::Lorem.paragraph(rand(1.4))
   )
+
+p.update_attribute(:created_at, Time.now - rand(600..31536000))
+
+    p.update_rank
+    topics.rotate!
+
 end
 
 #Create comments
