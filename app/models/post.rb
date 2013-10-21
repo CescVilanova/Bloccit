@@ -2,8 +2,10 @@ class Post < ActiveRecord::Base
   attr_accessible :body, :title, :topic, :tags, :image
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   belongs_to :user
   belongs_to :topic
+  after_create :create_vote
   mount_uploader :image, ImageUploader # Line added to declare mount_uploader.
 
   def up_votes
@@ -25,8 +27,6 @@ class Post < ActiveRecord::Base
     self.update_attribute(:rank, new_rank)
   end
 
-
-
   default_scope order('rank DESC')
 
   validates :title, length: { minimum: 5 }, presence: true
@@ -34,4 +34,15 @@ class Post < ActiveRecord::Base
   validates :topic, presence: true
   validates :user, presence: true
 
+private
+
+  # Who ever created a post, should automatically be set to "voting" it up.
+  def create_vote
+    user.votes.create(value: 1, post: self)
+  end  
+
 end
+
+
+
+

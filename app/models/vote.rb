@@ -11,5 +11,6 @@ class Vote < ActiveRecord::Base
 
   def update_post
     self.post.update_rank 
+  end
 
 end
