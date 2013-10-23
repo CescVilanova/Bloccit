@@ -21,8 +21,9 @@ rand(4..10).times do
   u.save
 
   rand(5..12).times do
-    topic = topics.first #getting the first topic here
+    topic = topics.sample #getting a random topic here
     p = u.posts.create(
+      topic: topic,
       title: Faker::Lorem.words(rand(1..10)).join(" "), 
       body: Faker::Lorem.paragraphs(rand(1..4)).join("\n"))
     # set the created_at to a time within the past year
@@ -61,7 +62,6 @@ u = User.new(
   password_confirmation: 'helloworld')
 u.skip_confirmation!
 u.save
-
 
 
 puts "Seed finished"
