@@ -15,6 +15,8 @@
 //= require bootstrap
 //= require_tree .
 
+// Next code commented to make it possible to progress in the Ajax lessons.
+
 $(document).ready(function() {
   $(".js-show-hide").click(function() {
     var selector = "." + $(this).attr('data-selector');
