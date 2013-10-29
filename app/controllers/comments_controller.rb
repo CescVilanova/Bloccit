@@ -12,19 +12,19 @@ class CommentsController < ApplicationController
     @new_comment = Comment.new
 
     authorize! :create, @comment, message: "You need be signed in to do that."
+
     if @comment.save
       flash[:notice] = "Comment was created."
-      redirect_to [@topic, @post]
     else
       flash[:error] = "There was an error saving the comment. Please try again."
-      render 'posts/show'
     end
-    
+
     respond_with(@comment) do |f|
-    f.html { redirect_to [@topic, @post] }
+      f.html { redirect_to [@topic, @post] }
     end
-  
+
   end
+    
 
   def destroy
     @topic = Topic.find(params[:topic_id])
